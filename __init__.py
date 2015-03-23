@@ -25,35 +25,3 @@ def random_word(length=4, with_spaces=False):
     if with_spaces:
         alphabet += ' '
     return ''.join([random.choice(alphabet) for i in range(length)])
-
-
-def assertEqual(*args):
-    for i in range(len(args)):
-        arg1 = args[i]
-        arg2 = args[i - 1]
-        if arg1 != arg2:
-            raise AssertionError(
-                '{} != {}'.format(arg1, arg2))
-
-
-def largest(*args):
-    """
-    Returns the largest value
-    """
-    large = args[0]
-    for arg in args:
-        if arg > large:
-            large = arg
-    return large
-biggest = largest  # synonym
-
-
-def smallest(*args):
-    """
-    Returns the smallest value
-    """
-    small = args[0]
-    for arg in args:
-        if arg < small:
-            small = arg
-    return small
