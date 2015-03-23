@@ -34,3 +34,26 @@ def assertEqual(*args):
         if arg1 != arg2:
             raise AssertionError(
                 '{} != {}'.format(arg1, arg2))
+
+
+def largest(*args):
+    """
+    Returns the largest value
+    """
+    large = args[0]
+    for arg in args:
+        if arg > large:
+            large = arg
+    return large
+biggest = largest  # synonym
+
+
+def smallest(*args):
+    """
+    Returns the smallest value
+    """
+    small = args[0]
+    for arg in args:
+        if arg < small:
+            small = arg
+    return small
