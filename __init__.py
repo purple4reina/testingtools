@@ -25,3 +25,31 @@ def random_word(length=4, with_spaces=False):
     if with_spaces:
         alphabet += ' '
     return ''.join([random.choice(alphabet) for i in range(length)])
+
+
+def get_all_attrs(obj):
+    """
+    Runs getattr on all possible attributes on the obj, returning a dictionary
+    of each attr and its value
+
+    Excludes attributes that begin with an underscore
+    """
+    attr_dict = {}
+    for attr in dir(obj):
+        if attr.startswith('_'):
+            continue
+        val = getattr(obj, attr)
+        attr_dict[attr] = val
+    return attr_dict
+
+
+class StopWatch(object):
+    """
+    A stopwatch to help print out timings.
+    """
+    def start(self):
+        self.start = time.time()
+
+    def stop(self):
+        self.end = time.time()
+        print '{} seconds'.format(self.end - self.start)
