@@ -1,3 +1,4 @@
+import logging
 import random
 import time
 
@@ -53,3 +54,20 @@ class StopWatch(object):
     def stop(self):
         self.end = time.time()
         print '{} seconds'.format(self.end - self.start)
+
+
+def set_loglevel_for_module(module, level):
+    """
+    Sets the log level for a given module.
+
+    Level can be an integer representing the level as given in the logging
+    module:
+        CRITICAL 50
+        ERROR    40
+        WARNING  30
+        INFO     20
+        DEBUG    10
+        NOTSET   0
+    """
+    logger = logging.getLogger(module)
+    logger.setLevel(level)
