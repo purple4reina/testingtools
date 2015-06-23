@@ -79,3 +79,19 @@ def is_prime(num):
         if not num % n:
             return False
     return True
+
+
+_seen_fib = {}
+def fib(n):
+    """
+    Return the n-th value of the Fibonacci sequence
+    """
+    if n == 0 or n == 1:
+        _seen_fib[n] = 1
+        return 1
+    elif n in _seen_fib:
+        return _seen_fib[n]
+    else:
+        this_fib = fib(n - 2) + fib(n - 1)
+        _seen_fib[n] = this_fib
+        return this_fib
