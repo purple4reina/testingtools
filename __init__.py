@@ -3,6 +3,17 @@ import random
 import time
 
 
+def print_fn_name(fn):
+    """
+    Decorator that will just print the name of the current method before
+    executing it
+    """
+    def wrap(*args, **kwargs):
+        print 'running {}...'.format(fn.__name__)
+        return fn(*args, **kwargs)
+    return wrap
+
+
 def print_time_to_execute(fn):
     """
     Decorator that will print the time it took for a method to execute after
